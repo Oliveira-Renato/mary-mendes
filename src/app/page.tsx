@@ -10,10 +10,10 @@ export default function Home() {
       {/* Main Section */}
       <section
         id="main"
-        className="h-screen grid grid-cols-2 bg-cover bg-center px-20 overflow-hidden relative bg-gray-200"
+        className="h-screen grid grid-cols-1 md:grid-cols-2 bg-cover bg-center px-20 overflow-hidden relative bg-gray-200"
       >
-        <aside className="w-full md:h-auto mb-8 md:mb-0 md:mr-8">
-          <div>
+        <aside className="w-full md:h-auto md:mr-8 flex items-center">
+          <div className="">
             <Image
               src={mainImage}
               width={500}
@@ -24,9 +24,9 @@ export default function Home() {
           </div>
         </aside>
 
-        <div className="h-screen text-center flex items-center justify-center md:text-left">
+        <div className="md:h-screen h-auto text-center flex items-start md:items-center justify-center md:text-left">
           <div className="">
-            <h1 className="text-6xl font-bold text-textMain leading-tight tracking-wider font-primary">
+            <h1 className="text-4xl md:text-6xl font-bold text-textMain leading-tight tracking-wider font-primary">
               Mary Mendes
             </h1>
             <p className="text-2xl text-textSecondary mt-4 max-w-lg leading-relaxed">
