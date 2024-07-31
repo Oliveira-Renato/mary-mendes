@@ -1,5 +1,6 @@
 import Image from "next/image";
-import mainImage from "/public/images/main/m-main.jpg";
+import mainImage from "/public/images/main/m-main-3.jpg";
+import bgTeste from "/public/bg-teste.png";
 
 export default function Home() {
   return (
@@ -7,26 +8,35 @@ export default function Home() {
       {/* Main Section */}
       <section
         id="main"
-        className="h-screen flex flex-col md:flex-row items-center justify-center bg-cover bg-center p-4 overflow-hidden"
+        className="h-screen flex flex-col md:flex-row items-center justify-center bg-cover bg-center p-4 overflow-hidden  relative"
       >
-        <aside className="mb-8 md:mb-0 md:mr-8">
-          <Image
-            src={mainImage}
-            width={500}
-            height={500}
-            alt="Foto principal da modelo"
-            className="object-cover w-full h-ful"
-          />
+        <aside className="w-full md:w-1/2 h-64 md:h-auto mb-8 md:mb-0 md:mr-8">
+          <div>
+            <Image
+              src={mainImage}
+              width={500}
+              height={500}
+              alt="Foto principal da modelo"
+              className="object-cover max-h-fit border-4 border-red-500 neon-border saturate-red brightness-150 saturate-125"
+            />
+          </div>
         </aside>
         <div className="text-center md:text-left">
-          <h1 className="text-6xl font-bold text-white leading-tight tracking-wider">
+          <h1 className="text-6xl font-bold text-textMain leading-tight tracking-wider font-primary">
             Mary Mendes
           </h1>
-          <p className="text-2xl text-white mt-4 max-w-lg leading-relaxed">
+          <p className="text-2xl text-textSecondary mt-4 max-w-lg leading-relaxed">
             <span>Modelo</span> e <span>criadora de conteúdo</span>, apaixonada
             por moda, desfiles, edição de vídeos e música.
           </p>
         </div>
+        <Image
+          src={bgTeste}
+          width={500}
+          height={500}
+          alt="Bg"
+          className="object-cover w-full h-ful absolute"
+        />
       </section>
 
       {/* About Section */}

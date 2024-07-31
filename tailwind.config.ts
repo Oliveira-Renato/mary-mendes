@@ -9,11 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#FFC0CB",
-        secondary: "#FF69B4",
-        neutral: "#FFFFFF",
-        textMain: "#333333",
-        textSecondary: "#666666",
+        primary: "#FF6347",
+        secondary: "#00BFFF",
+        tertiary: "#32CD32",
+        neutralLight: "#F5F5F5",
+        textMain: "#1E1E1E",
+        textSecondary: "#1E1E1E",
+      },
+      backgroundImage: {
+        "background-red":
+          "linear-gradient(90deg, rgba(219,10,10,1) 0%, rgba(251,62,37,1) 100%, rgba(246,31,3,1) 100%)",
+        "gradient-green-purple":
+          "linear-gradient(135deg, #32CD32 0%, #8A2BE2 100%)",
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
         primary: ["Playfair Display", "serif"],
@@ -46,11 +56,6 @@ const config: Config = {
         "4": "1rem",
         "5": "1.25rem",
         "6": "1.5rem",
-      },
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
     },
   },
