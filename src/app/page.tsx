@@ -13,7 +13,7 @@ export default function Home() {
         className="h-screen grid grid-cols-1 md:grid-cols-2 bg-cover bg-center px-20 overflow-hidden relative bg-gray-200"
       >
         <aside className="w-full md:h-auto md:mr-8 flex items-center">
-          <div className="">
+          <div>
             <Image
               src={mainImage}
               width={500}
@@ -25,7 +25,7 @@ export default function Home() {
         </aside>
 
         <div className="md:h-screen h-auto text-center flex items-start md:items-center justify-center md:text-left">
-          <div className="">
+          <div>
             <h1 className="text-4xl md:text-6xl font-bold text-textMain leading-tight tracking-wider font-primary">
               Mary Mendes
             </h1>
@@ -52,9 +52,10 @@ export default function Home() {
         id="about"
         className="h-screen grid grid-cols-1 md:grid-cols-3 bg-gray-100 overflow-hidden"
       >
-        <div className="flex justify-end items-center ml-20 px-4 col-span-1 w-full">
-          <div className="text-center md:text-left">
-            <h2 className="text-6xl font-bold text-textMain leading-tight tracking-wider font-primary">
+        {/* Texto sobre a modelo */}
+        <div className="md:h-screen h-auto text-center flex items-start md:items-center justify-center md:text-left p-20 ml-0 md:p-4 md:ml-20 md:order-1 order-2">
+          <div>
+            <h2 className="text-4xl md:text-6xl font-bold text-textMain leading-tight tracking-wider font-primary">
               Sobre Mim
             </h2>
             <p className="text-lg mb-6 text-2xl text-textSecondary mt-4 max-w-lg leading-relaxed">
@@ -70,7 +71,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="h-full flex justify-end items-center">
+        {/* Imagem polaroide da modelo */}
+        <div className="h-full flex justify-end items-center md:order-2 order-1">
           <div className="relative polaroid w-2/3 h-2/3">
             <Image
               src={mainAboutImage2}
@@ -82,7 +84,7 @@ export default function Home() {
           </div>
         </div>
 
-        <aside className="flex items-center justify-center">
+        <div className="flex items-center justify-center md:order-3 order-3">
           <div className="w-full h-full">
             <Image
               src={mainAboutImage}
@@ -92,15 +94,15 @@ export default function Home() {
               className="object-cover"
             />
           </div>
-        </aside>
+        </div>
 
-        <Image
+        {/* <Image
           src={bgTeste}
           width={500}
           height={500}
           alt="Bg"
           className="object-cover w-full h-full absolute grayscale"
-        />
+        /> */}
       </section>
 
       {/* Portfolio Section */}
