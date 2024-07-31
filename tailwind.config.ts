@@ -9,12 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#FF6347",
+        primary: "rgba(251,62,37,1)",
         secondary: "#00BFFF",
         tertiary: "#32CD32",
         neutralLight: "#F5F5F5",
         textMain: "#1E1E1E",
-        textSecondary: "#1E1E1E",
+        textSecondary: "#2E2E2E",
       },
       backgroundImage: {
         "background-red":

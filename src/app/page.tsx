@@ -27,11 +27,14 @@ export default function Home() {
         <div className="md:h-screen h-auto text-center flex items-start md:items-center justify-center md:text-left">
           <div>
             <h1 className="text-4xl md:text-6xl font-bold text-textMain leading-tight tracking-wider font-primary">
-              Mary Mendes
+              <span className="text-primary">M</span>ary{" "}
+              <span className="text-primary">M</span>endes
             </h1>
             <p className="text-2xl text-textSecondary mt-4 max-w-lg leading-relaxed">
-              <span>Modelo</span> e <span>criadora de conteúdo</span>,
-              apaixonada por moda, desfiles, edição de vídeos e música.
+              <span className="text-3xl text-primary">M</span>
+              odelo e <span className="">criadora de conteúdo</span>, apaixonada
+              por <span className="text-primary">m</span>oda, desfiles, edição
+              de vídeos!
             </p>
           </div>
         </div>
@@ -50,21 +53,21 @@ export default function Home() {
       {/* About Section */}
       <section
         id="about"
-        className="h-screen grid grid-cols-1 md:grid-cols-3 bg-gray-100 overflow-hidden"
+        className="h-auto md:h-screen grid grid-cols-1 md:grid-cols-3 bg-gray-100 overflow-hidden"
       >
         {/* Texto sobre a modelo */}
-        <div className="md:h-screen h-auto text-center flex items-start md:items-center justify-center md:text-left p-20 ml-0 md:p-4 md:ml-20 md:order-1 order-2">
+        <div className="md:h-screen text-center flex items-start md:items-center justify-center md:text-left px-20 mb-16 md:mb-0 ml-0 md:p-4 md:ml-20 md:order-1 order-2">
           <div>
             <h2 className="text-4xl md:text-6xl font-bold text-textMain leading-tight tracking-wider font-primary">
-              Sobre Mim
+              Sobre <span className="text-primary">M</span>im
             </h2>
-            <p className="text-lg mb-6 text-2xl text-textSecondary mt-4 max-w-lg leading-relaxed">
+            <p className="text-md md:text-lg mb-6 text-textSecondary mt-4 max-w-lg leading-relaxed">
               Mary Mendes é uma modelo profissional com vasta experiência em
               campanhas publicitárias, desfiles de moda e fotos editoriais. Com
               um estilo único e presença marcante, Mary encanta em cada trabalho
               que realiza.
             </p>
-            <p className="text-lg text-2xl text-textSecondary mt-4 max-w-lg leading-relaxed">
+            <p className="text-md md:text-lg text-textSecondary mt-4 max-w-lg leading-relaxed">
               Fora das câmeras, Mary gosta de viajar, praticar yoga e se dedicar
               à filantropia.
             </p>
@@ -72,19 +75,20 @@ export default function Home() {
         </div>
 
         {/* Imagem polaroide da modelo */}
-        <div className="h-full flex justify-end items-center md:order-2 order-1">
-          <div className="relative polaroid w-2/3 h-2/3">
+        <div className="h-full flex justify-center md:justify-end items-center md:order-2 order-1 md:py-0 py-16">
+          <div className="w-2/3">
             <Image
               src={mainAboutImage2}
               width={300}
               height={300}
               alt="Foto Sobre da modelo"
-              className="object-cover"
+              className="object-cover polaroid"
             />
           </div>
         </div>
 
-        <div className="flex items-center justify-center md:order-3 order-3">
+        {/* Imagem Bg sobre da modelo */}
+        <div className="flex items-center justify-center md:order-3 order-3 md:grid hidden">
           <div className="w-full h-full">
             <Image
               src={mainAboutImage}
