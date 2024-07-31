@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.polaroid {
+  padding: 10px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: rotate(-1deg);
+  position: relative;
+}
+.polaroid::before {
+  content: "";
+  display: block;
+}
+.polaroid img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
