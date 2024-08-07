@@ -177,18 +177,43 @@ export default function Home() {
       {/* Portfolio Section */}
       <section id="portfolio" className="py-16 px-20 bg-gray-200">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl md:text-6xl text-left font-bold text-textMain leading-tight tracking-wider font-primary">
+          <h2 className="text-4xl md:text-6xl text-center md:text-left font-bold text-textMain leading-tight tracking-wider font-primary">
             Portfólio
           </h2>
 
           {galleryData.map((category: GalleryItem) => (
-            <div key={category.id} className="mb-12 ">
-              <div className="relative flex items-center justify-center my-12">
+            <div key={category.id} className="mb-12 relative album">
+              <FlashLight
+                src={flashLight}
+                width={200}
+                height={200}
+                top="10%"
+                left="22%"
+                zIndex={0}
+              />
+              <FlashLight
+                src={flashLight}
+                width={400}
+                height={400}
+                top="50%"
+                right="10%"
+                zIndex={0}
+              />
+              <FlashLight
+                src={flashLight}
+                width={150}
+                height={150}
+                bottom="50%"
+                left="70%"
+                zIndex={0}
+              />
+
+              <div className="relative flex items-center justify-center mb-6">
                 <div className="absolute inset-0 flex justify-center items-center z-0">
                   <Image
                     src={flashLight}
-                    width={250}
-                    height={250}
+                    width={200}
+                    height={100}
                     alt="teste"
                     className="object-cover"
                   />
@@ -216,6 +241,8 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+              {/* // quebra pagina */}
+              <div className=""></div>
             </div>
           ))}
         </div>

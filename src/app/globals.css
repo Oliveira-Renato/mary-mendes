@@ -18,3 +18,50 @@
   width: 100%;
   height: auto;
 }
+
+.album {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+  background: #f0f0f0;
+}
+
+.album-item {
+  position: relative;
+  width: calc(33.333% - 16px); /* Ajuste conforme necessário */
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: rotate(-1deg);
+  padding: 10px;
+  border: 4px solid #ddd;
+  border-radius: 8px;
+}
+
+.album-item:nth-child(odd) {
+  transform: rotate(1deg);
+}
+
+.album-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.album-item::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.album-item:hover::after {
+  background: #ff5722; /* Cor do destaque ao passar o mouse */
+}
