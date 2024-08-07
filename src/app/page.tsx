@@ -1,8 +1,22 @@
 import Image from "next/image";
 import mainImage from "/public/images/main/m-main-3.jpg";
 import mainAboutImage from "/public/images/about/m-about.jpg";
+//import flashTest from "/public/images/flashs/180.jpg";
 import mainAboutImage2 from "/public/images/about/m-about-3.jpg";
-import bgTeste from "/public/bg-teste.png";
+import flashLight from "/public/flash-up.png";
+import galleryData from "/data/gallery.json";
+import FlashLight from "@/components/FlashLight";
+
+interface ImagePack {
+  url: string;
+  description: string;
+}
+
+interface GalleryItem {
+  id: number;
+  theme: string;
+  pack: ImagePack[];
+}
 
 export default function Home() {
   return (
@@ -25,7 +39,33 @@ export default function Home() {
         </aside>
 
         <div className="md:h-screen h-auto text-center flex items-start md:items-center justify-center md:text-left">
-          <div>
+          {/* Luzes de Flash */}
+          <FlashLight
+            src={flashLight}
+            width={300}
+            height={300}
+            top="10%"
+            left="5%"
+            zIndex={0}
+          />
+          <FlashLight
+            src={flashLight}
+            width={400}
+            height={400}
+            top="50%"
+            right="10%"
+            zIndex={0}
+          />
+          <FlashLight
+            src={flashLight}
+            width={200}
+            height={200}
+            bottom="20%"
+            left="70%"
+            zIndex={0}
+          />
+
+          <div className="relative z-10">
             <h1 className="text-4xl md:text-6xl font-bold text-textMain leading-tight tracking-wider font-primary">
               <span className="text-primary">M</span>ary{" "}
               <span className="text-primary">M</span>endes
@@ -39,7 +79,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-full h-full absolute grayscale">
+        {/* <div className="w-full h-full absolute grayscale">
           <Image
             src={bgTeste}
             width={500}
@@ -47,7 +87,7 @@ export default function Home() {
             alt="Bg"
             className="object-cover w-full h-full"
           />
-        </div>
+        </div> */}
       </section>
 
       {/* About Section */}
@@ -56,8 +96,25 @@ export default function Home() {
         className="h-auto md:h-screen grid grid-cols-1 md:grid-cols-3 bg-gray-100 overflow-hidden"
       >
         {/* Texto sobre a modelo */}
-        <div className="md:h-screen text-center flex items-start md:items-center justify-center md:text-left px-20 mb-16 md:mb-0 ml-0 md:p-4 md:ml-20 md:order-1 order-2">
-          <div>
+        <div className="md:h-screen text-center flex items-start md:items-center justify-center md:text-left px-20 mb-16 md:mb-0 ml-0 md:p-4 md:ml-20 md:order-1 order-2 relative">
+          <FlashLight
+            src={flashLight}
+            width={250}
+            height={250}
+            top="10%"
+            left="5%"
+            zIndex={0}
+          />
+          <FlashLight
+            src={flashLight}
+            width={400}
+            height={400}
+            top="50%"
+            right="10%"
+            zIndex={0}
+          />
+
+          <div className="relative z-10">
             <h2 className="text-4xl md:text-6xl font-bold text-textMain leading-tight tracking-wider font-primary">
               Sobre <span className="text-primary">M</span>im
             </h2>
@@ -75,7 +132,15 @@ export default function Home() {
         </div>
 
         {/* Imagem polaroide da modelo */}
-        <div className="h-full flex justify-center md:justify-end items-center md:order-2 order-1 md:py-0 py-16">
+        <div className="h-full flex justify-center md:justify-end items-center md:order-2 order-1 md:py-0 py-16 relative">
+          <FlashLight
+            src={flashLight}
+            width={300}
+            height={300}
+            top="7%"
+            right="35%"
+            zIndex={10}
+          />
           <div className="w-2/3">
             <Image
               src={mainAboutImage2}
@@ -110,29 +175,49 @@ export default function Home() {
       </section>
 
       {/* Portfolio Section */}
-      <section
-        id="portfolio"
-        className="h-screen flex items-center justify-center bg-cover bg-center py-16 relative"
-      >
-        <div className="container mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-8">Portfólio</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="p-4">
-              <img
-                src="/images/mary-photo1.jpg"
-                alt="Mary Photo 1"
-                className="w-full h-auto rounded-lg"
-              />
+      <section id="portfolio" className="py-16 px-20 bg-gray-200">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-6xl text-left font-bold text-textMain leading-tight tracking-wider font-primary">
+            Portfólio
+          </h2>
+
+          {galleryData.map((category: GalleryItem) => (
+            <div key={category.id} className="mb-12 ">
+              <div className="relative flex items-center justify-center my-12">
+                <div className="absolute inset-0 flex justify-center items-center z-0">
+                  <Image
+                    src={flashLight}
+                    width={250}
+                    height={250}
+                    alt="teste"
+                    className="object-cover"
+                  />
+                </div>
+                <h3 className="relative text-3xl text-center font-bold text-textMain font-primary z-10">
+                  {category.theme}
+                </h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {category.pack.map((image, index) => (
+                  <div key={index} className="p-4 group relative ">
+                    <Image
+                      src={image.url.replace("/public", "")} // Corrija o caminho se necessário
+                      alt={image.description || `Image ${index + 1}`}
+                      width={400}
+                      height={400}
+                      className="w-full h-auto object-cover transition-transform transform group-hover:scale-105 polaroid"
+                    />
+                    <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity">
+                      <p className="text-white text-lg font-semibold">
+                        {image.description || `Image ${index + 1}`}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="p-4">
-              <img
-                src="/images/mary-photo2.jpg"
-                alt="Mary Photo 2"
-                className="w-full h-auto rounded-lg"
-              />
-            </div>
-            {/* Adicione mais fotos conforme necessário */}
-          </div>
+          ))}
         </div>
       </section>
 
